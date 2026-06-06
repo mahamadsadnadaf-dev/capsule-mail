@@ -1,0 +1,45 @@
+body{
+    background: teal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+
+}
+
+.container{
+    width:800px
+}
+
+h1{
+    text-align: center;
+}
+
+.letter{
+    width: 100%;
+    min-height: 500px;
+    padding: 25px;
+    font-size: 18px;
+    line-height: 1.8;
+    border:1px solid #ccc;
+    resize: vertical;
+    box-sizing: border-box;
+
+}
+
+.field{
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
+    padding: 12px;
+    margin-top:15px;
+    border:1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 10px;
+    width: 30%;
+    padding: 14px;
+    border: none;   
+    cursor: pointer;
+}
