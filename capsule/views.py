@@ -25,9 +25,12 @@
 #   get_queryset()  -> Protects READ operations
 #   perform_create() -> Protects WRITE operations
 # ============================================================
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework import viewsets,permissions
 from .models import Letter
+from rest_framework import status
+from django.contrib.auth.models import User
 from .serializers import LetterSerializer
 
 class LetterViewSet(viewsets.ModelViewSet):
@@ -38,4 +41,24 @@ class LetterViewSet(viewsets.ModelViewSet):
         return Letter.objects.filter(user=self.request.user)
     def perform_create(self,serializer):
         serializer.save(user=self.request.user)
+    
+class RegistrationPoint(APIView):
+    def post(self,request):
+        username = request.data.get("username")
+        email = request.data.get("email")
+        password = request.data.get("password")
+
+        user = User.objects.create_user(
+            username = username,
+            email = email,
+            password = password
+        )
+
+        return Response({
+            "id":user.id,
+            "username":username,
+            "email" : email,
+            "message":"User created successfully!"
+        }, status=status.HTTP_201_CREATED)
+
 
