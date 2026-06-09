@@ -25,4 +25,4 @@
 Under active development.
 
 ## ⚙️ Setup
-Coming soon.
+Coming soon....
